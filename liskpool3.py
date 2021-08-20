@@ -213,8 +213,8 @@ def paymentCommandForLiskCore(conf, address, amount):
 
 	
 def savePayments(conf, topay):
-	addr = r(conf, 'accounts?username=' + conf['delegateName'])['data'][0]['summary']['address']
-	st = ['echo Write passphrase: ', 'read PASSPHRASE']
+	addr = conf['poolAddress']
+	st = ['PASSPHRASE="%s"' % conf['poolPassphrase']]
 
 	# Calculate initial nonce
 	st.append('NONCE=`lisk-core account:get %s | jq ".sequence.nonce" -r`' % (addressToBinary(addr)))
