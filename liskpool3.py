@@ -37,7 +37,7 @@ DRY_RUN = False
 
 NETWORKS = {
 	'testnet': '15f0dacc1060e91818224a94286b13aa04279c640bd5d6f193182031d133df7c',
-	'mainnet': 'notyetknow'
+	'mainnet': '4c09e6a781fc4c7bdb936ee815de8f94190f8a7519becd9de2081832be309a99'
 }
 
 
@@ -204,8 +204,8 @@ def paymentCommandForLiskCore(conf, address, amount):
 	FEE = '200000'
 
 	return '\n'.join([
-		'TXC=`lisk-core transaction:create 2 0 %s --offline --network %s --network-identifier %s --nonce=\`echo $NONCE\` --passphrase="\`echo $PASSPHRASE\`" --asset=\'{"data": "%s payouts", "amount":%s,"recipientAddress":"%s"}\'`' 
-			% (FEE, conf['network'], NETWORKS[conf['network']], conf['delegateName'], amount, addressToBinary(address)),
+		'TXC=`lisk-core transaction:create 2 0 %s --offline --network %s --network-identifier %s --nonce=\`echo $NONCE\` --passphrase="\`echo $PASSPHRASE\`" --asset=\'{"data": "lemii | lisktools.eu 🚀", "amount":%s,"recipientAddress":"%s"}\'`' 
+			% (FEE, conf['network'], NETWORKS[conf['network']], amount, addressToBinary(address)),
 		'echo $TXC',
 		'NONCE=$(($NONCE+1))',
 		'lisk-core transaction:send `echo $TXC|jq .transaction -r`'

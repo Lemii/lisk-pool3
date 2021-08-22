@@ -1,7 +1,7 @@
 {
-	"apiEndpoint": "https://testnet-service.lisk.io/api/v2/",
+	"apiEndpoint": "https://mainnet-service.lisk.io/api/v2/",
 	"interactive": true,
-	"network": "testnet",
+	"network": "mainnet",
 	"delegateName": "lemii",
 	"poolAddress": "lskqqkpthvxfge3meqr8v785ochrwrkdared6uuzj",
 	"poolPassphrase": "word word word word word word word word word word word word",
