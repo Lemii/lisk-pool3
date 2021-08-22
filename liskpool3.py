@@ -137,8 +137,9 @@ def loadPoolState(conf):
 		
 def getVotesPercentages(conf):
 	votes = r(conf, 'votes_received?limit=100&offset=0&aggregate=true&username=' + conf['delegateName'])['data']['votes']
+	votes = [x for x in votes if ('username' not in x ) or ('username' in x and x['username'] != conf['delegateName'])]
 	totalVotes = reduce(lambda x,y: x + int(y['amount']), votes, 0)
-
+	
 	def votePercentage(v):
 		v['percentage'] = int(v['amount']) * 100. / float(totalVotes)
 		return v
